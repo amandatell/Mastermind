@@ -25,15 +25,27 @@ namespace Mastermind
         int btnTurn;
 
         WinChecker checker;
+        StatsManager stats;
+
+        // Event to save data in db
+        public event EventHandler<Finish> Finish;
 
         public MastermindWindow()
         {
+            stats = new StatsManager();
             InitializeComponent();
             SetEvents();
             foreach (Button btn in sBase.Children)
             {
                 btn.IsEnabled = false;
             }
+            Finish += stats.OnFinish;
+
+            // Gets the wins and losses from db and last date played
+            IQueryable<bool> wins = stats.GetWins();
+            string lastGame = stats.GetLastPlayed();
+            txtLastGame.Text = lastGame;
+            ShowWinAndLosses(wins);
         }
 
         /// <summary>
@@ -41,6 +53,8 @@ namespace Mastermind
         /// </summary>
         private void InitializeGUI()
         {
+            string lastGame = stats.GetLastPlayed();
+            txtLastGame.Text = lastGame;
             btnTurn = 0;
             active = null;
             stackSmall = new Queue<StackPanel>();
@@ -63,6 +77,26 @@ namespace Mastermind
                     btn.IsEnabled = false;
                 }
             }
+        }
+
+        /// <summary>
+        /// Shows previous wins and losses
+        /// </summary>
+        /// <param name="stats"></param>
+        public void ShowWinAndLosses(IQueryable<bool> stats)
+        {
+            int wins = 0;
+            int losses = 0;
+            foreach (bool item in stats)
+            {
+                if (item)
+                    wins++;
+                else
+                    losses++;
+            }
+
+            txtWins.Text = wins.ToString();
+            txtLosses.Text = losses.ToString();
         }
 
         /// <summary>
@@ -206,6 +240,23 @@ namespace Mastermind
             {
                 btn.IsEnabled = false;
             }
+            Finish finish = new Finish(win);
+            OnFinish(finish);
+            IQueryable<bool> wins = stats.GetWins();
+            ShowWinAndLosses(wins);
+            string lastGame = stats.GetLastPlayed();
+            txtLastGame.Text = lastGame;
+
+        }
+
+        /// <summary>
+        /// OnFinish event; triggers when a game is finished
+        /// </summary>
+        /// <param name="e"></param>
+        public void OnFinish(Finish e)
+        {
+            if (Finish != null)
+                Finish(this, e);
         }
     }
 }

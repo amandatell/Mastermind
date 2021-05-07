@@ -143,6 +143,16 @@
                 </StackPanel>
             </Border>
         </DockPanel>
+        <StackPanel x:Name="t0" Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+            <TextBlock FontSize="12" Margin="0,30,0,0" >Last date played:</TextBlock>
+            <TextBlock x:Name="txtLastGame" FontSize="12" Margin="40,30,0,0.4" Width="109" />
+        </StackPanel>
+        <StackPanel x:Name="t1" Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+            <TextBlock FontSize="20">Total wins</TextBlock>
+            <TextBlock x:Name="txtWins" FontSize="20" Foreground="Green" Margin="-60,24,0,0" Width="29">0</TextBlock>
+            <TextBlock FontSize="20" Margin="40,0,0,0.4" Width="108"><Run Text="Total losses"/></TextBlock>
+            <TextBlock x:Name="txtLosses" FontSize="20" Foreground="Red" Margin="-100,24,0,0" Width="29">0</TextBlock>
+        </StackPanel>
         <StackPanel x:Name="t2" Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
             <Button x:Name="t2b2" Style="{StaticResource SmallButtonStyle}"/>
             <Button x:Name="t2b3" Style="{StaticResource SmallButtonStyle}"/>

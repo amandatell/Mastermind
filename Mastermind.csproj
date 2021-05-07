@@ -53,6 +53,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -77,6 +83,26 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ButtonEvents.cs" />
+    <Compile Include="Stat.cs">
+      <DependentUpon>StatsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatsManager.cs" />
+    <Compile Include="StatsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Finish.cs" />
     <Compile Include="WinChecker.cs" />
     <Page Include="MastermindWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,13 +135,40 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="StatsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StatsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StatsModel.edmx.diagram">
+      <DependentUpon>StatsModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Stats.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StatsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatsModel.edmx</DependentUpon>
+      <LastGenOutput>StatsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StatsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatsModel.edmx</DependentUpon>
+      <LastGenOutput>StatsModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Stats_log.ldf">
+      <DependentUpon>Stats.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
