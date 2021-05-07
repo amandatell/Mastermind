@@ -1,0 +1,206 @@
+﻿<Window x:Class="Mastermind.MastermindWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mastermind"
+        mc:Ignorable="d"
+       Title="MainWindow" Height="800" Width="750"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key = "ButtonStyle" TargetType = "Button">
+            <Setter Property = "Height" Value = "45"/>
+            <Setter Property = "Width" Value = "45"/>
+            <Setter Property = "Margin" Value = "30 0 0 5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1"
+                                BorderBrush="Black"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="50">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key = "SmallButtonStyle" TargetType = "Button">
+            <Setter Property = "Height" Value = "20"/>
+            <Setter Property = "Width" Value = "20"/>
+            <Setter Property = "Margin" Value = "10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1"
+                                BorderBrush="Black"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="50">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="2" FontSize="40" Margin="200 4">Mastermind</TextBlock>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Border BorderBrush="#808080" BorderThickness="0 0 0 1" >
+                <StackPanel x:Name="s1" Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="3">
+                    <Button x:Name="s1b1" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="s1b2" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="s1b3" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="s1b4" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="s1b5" Style="{StaticResource ButtonStyle}" />
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        <StackPanel x:Name="s2" Grid.Row="2" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s2b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s2b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s2b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s2b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s2b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s3" Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s3b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s3b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s3b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s3b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s3b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s4" Grid.Row="4" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s4b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s4b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s4b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s4b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s4b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s5" Grid.Row="5" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s5b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s5b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="sb3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s5b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s5b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s6" Grid.Row="6" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s6b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s6b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s6b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s6b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s6b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s7" Grid.Row="7" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s7b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s7b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s7b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s7b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s7b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s8" Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s8b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s8b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s8b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s8b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s8b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <StackPanel x:Name="s9" Grid.Row="9" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <Button x:Name="s9b1" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s9b2" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s9b3" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s9b4" Style="{StaticResource ButtonStyle}" />
+            <Button x:Name="s9b5" Style="{StaticResource ButtonStyle}" />
+        </StackPanel>
+        <DockPanel Grid.Row="10" Grid.ColumnSpan="3">
+            <Border BorderBrush="#808080" BorderThickness="0 1 0 0" >
+                <StackPanel x:Name="sBase" Grid.Row="10" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <Button x:Name="sBaseRed" Click="sBaseRed_Click" Background="Red" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="sBaseGreen" Click="sBaseGreen_Click" Background="Green" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="sBaseYellow" Click="sBaseYellow_Click" Background="Yellow"  Style="{StaticResource ButtonStyle}"  />
+                    <Button x:Name="sBaseBlue" Click="sBaseBlue_Click" Background="Blue" Style="{StaticResource ButtonStyle}" />
+                    <Button x:Name="sBasePink" Click="sBasePink_Click" Background="Pink" Style="{StaticResource ButtonStyle}"  />
+                    <Button x:Name="sBasePurple" Click="sBasePurple_Click" Background="Purple" Style="{StaticResource ButtonStyle}"  />
+                    <Button x:Name="sBaseOrange" Click="sBaseOrange_Click" Background="Orange" Style="{StaticResource ButtonStyle}"  />
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        <StackPanel x:Name="t2" Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t2b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t2b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t2b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t2b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t2b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t3" Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t3b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t3b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t3b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t3b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t3b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t4" Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t4b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t4b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t4b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t4b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t4b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t5" Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t5b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t5b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t5b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t5b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t5b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t6" Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t6b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t6b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t6b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t6b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t6b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t7" Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+            <Button x:Name="t7b2" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t7b3" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t7b4" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t7b5" Style="{StaticResource SmallButtonStyle}"/>
+            <Button x:Name="t7b6" Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t8" Grid.Row="8" Grid.Column="2" Orientation="Horizontal">
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel x:Name="t9" Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+            <Button Style="{StaticResource SmallButtonStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="11">
+            <Button Margin="160,15" Height="30" x:Name="btnStartNew" Click="btnStartNew_Click" Content="Start New Game" />
+        </StackPanel>
+    </Grid>
+</Window>
